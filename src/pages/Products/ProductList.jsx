@@ -35,9 +35,7 @@ export const ProductList = () => {
     <main>
         <section className="my-5">
             <div className=" my-5 flex justify-between items-center">
-                <span className=" text-2xl font-semibold data:text-slate-100 text-white mb-5 pl-[50px]">
-                    All eBooks
-                </span>
+                <span class="text-2xl font-semibold dark:text-slate-100 text-white mb-5 pl-[50px]">All eBooks (15)</span>
 
                 <span>
                     <button onClick={() => setShow(!show)} id="dropDownIconButton"
