@@ -3,7 +3,7 @@ import {Hero} from './components/Hero'
 import {Testimonials} from './components/Testimonials'
 import {Faq} from './components/Faq'
 import { FeaturedProducts } from './components/FeacturedProduct'
-import { useTitle } from '../../hooks/useTitle'
+import { useTitle } from './hooks/useTitle'
 
 
 

@@ -1,5 +1,5 @@
 import { useCart } from "../../context/CartContext"
-import {useTitle} from "../../hooks/useTitle"
+import {useTitle} from "../Home/hooks/useTitle"
 import { CartEmpty } from "./component/CartEmpty"
 import CartList from "./component/CartList"
 

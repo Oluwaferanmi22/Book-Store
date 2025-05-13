@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useLocation } from "react-router-dom"
-import { useTitle } from "../../hooks/useTitle"
+import { useTitle } from "../Home/hooks/useTitle"
 import { ProductCard } from "../../component"
 import { FilterBar } from "./components/FilterBar"
 import { useFilter } from "../../context/FilterContext"

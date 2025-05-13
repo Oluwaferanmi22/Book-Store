@@ -3,17 +3,19 @@ export const login = async (authDetail) => {
     const accessToken = "tokenexample1234"
 
 
-    setTimeout(() => {
+
 
         if(authDetail.password) {
 
-            sessionStorage.setItem("token", JSON.stringify(accessToken))
+            localStorage.setItem("token", JSON.stringify(accessToken))
+            localStorage.setItem("email", JSON.stringify(authDetail.email))
 
-            return authDetail 
+
         }
         
-    }, 4000);
 
+    
+    return {...authDetail, accessToken} 
 
 }
 
@@ -21,27 +23,28 @@ export const register =  async (authDetail) => {
 
     const accessToken = "tokenexample1234"
 
-    setTimeout(() => {
+  
 
         if(authDetail.password) {
 
-            sessionStorage.setItem("token", JSON.stringify(accessToken))
+            localStorage.setItem("token", JSON.stringify(accessToken))
+            localStorage.setItem("email", JSON.stringify(authDetail.email))
 
-            return authDetail 
         }
-       
         
-    }, 4000);
+        
 
+    
+    return {...authDetail, accessToken} 
 }
 
 
 
 export const logout = async() => {
 
-    setTimeout(() => {
-        
-        sessionStorage.removeItem
 
-    }, 4000);
+        
+        localStorage.removeItem("token")
+
+    
 }
