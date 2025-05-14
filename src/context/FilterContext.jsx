@@ -1,6 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
 import { filterReducer } from "../reducers";
-import { redirect } from "react-router-dom";
 
 
 const filterInitialState = {
@@ -52,7 +51,7 @@ const inStock = (product) => {
     return state.onlyInStock ? product.filter(product => product.in_stock === true) : product
 }
 
-
+  
 const ratings = (product) => {
     if (state.ratings ===  "4STARSABOVE") {
         return product.filter(product => product.rating >= 4)
