@@ -11,6 +11,13 @@ export async function getProductList (searchTerm) {
     };
   }
 
+  if(searchTerm) {
+
+
+    const filteredResult = data?.filter(item => (item?.name.toLowerCase()?.split("").includes( searchTerm.toLowerCase()) || item?.name?.split("").includes(searchTerm)) || item.price.tostring().includes(searchTerm)) 
+  return filteredResult
+  }
+
     const data = await response.json()
 
     console.log(data)

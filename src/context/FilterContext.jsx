@@ -36,13 +36,13 @@ export const FilterProvider = ({children}) => {
 }
 
 const sort = (product) => {
-    if (state.sortBy === "LOW_TO_HIGH") {
+    if (state.sortBy === "LOWTOHIGH") {
         return product.sort((a, b) => a.price - b.price)
     
     }
 
     
-    if (state.sortBy === "HIGH_TO_LOW") {
+    if (state.sortBy === "HIGHTOLOW") {
         return product.sort((a, b) => Number (b.price) - Number (a.price))
     }
     return product
@@ -53,7 +53,7 @@ const inStock = (product) => {
 }
 
 
-const rating = (product) => {
+const ratings = (product) => {
     if (state.ratings ===  "4STARSABOVE") {
         return product.filter(product => product.rating >= 4)
     }
@@ -73,7 +73,7 @@ const rating = (product) => {
 
 console.log(state)
 
-const filterProductList = rating(sort(inStock(bestSeller(state.productlist))))
+const filterProductList = ratings(sort(inStock(bestSeller(state.productlist))))
 console.log(filterProductList)
 
 const value = {
