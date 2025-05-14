@@ -4,7 +4,7 @@ import ProductDetails from "../pages/ProductDetails";
 import { CartPage } from "../pages/Cart.jsx/CartPage";
 import { Register } from "../pages/Register";
 import { Login } from "../pages/Login";
-
+import Orderpage from "../pages/Order/Orderpage";
 
 export const AllRoutes = () => {  
   return (
@@ -16,6 +16,7 @@ export const AllRoutes = () => {
             <Route path="login" element={<Login/>}/>
             <Route path="register" element={<Register/>}/>
             <Route path="/cart" element={<CartPage/>}/>
+            <Route path="/order-summary" element={<Orderpage/>}/>
             
         </Routes>
     </>

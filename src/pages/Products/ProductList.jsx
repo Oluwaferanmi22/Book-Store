@@ -36,7 +36,7 @@ export const ProductList = () => {
       <section className="my-5">
         <div className=" my-5 flex justify-between items-center">
           <span className="text-2xl font-semibold dark:text-slate-100 text-white mb-5 pl-[50px]">
-            All eBooks (15)
+            All eBooks ({products?.length})
           </span>
 
           <span>

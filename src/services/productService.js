@@ -1,64 +1,50 @@
-export async function getProductList (searchTerm) {
-  const api = import.meta.env.VITE_APP_DB_SERVER;
+export async function getProductList(searchTerm) {
+    const api = import.meta.env.VITE_APP_DB_SERVER;
 
-  const response = await fetch(`${api}/products?name_like=${searchTerm ? searchTerm : ""}`);
-  console.log(response)
+    const response = await fetch(`${api}/products?name_like=${searchTerm? searchTerm : ""}`);
 
-  if (!response.ok) {
-    throw {
-      message: response.statusText,
-      status: response.status
-    };
-  }
+    if (!response.ok){
+        throw{message: response.statuseText, status: response.status};
+    }
 
-  if(searchTerm) {
+    const data = await response.json();
 
+    if (searchTerm){
+        const filteredRsult = data?.filter(item => (item.name.toLowerCase().split("").includes(searchTerm.toLowerCase()) || item.name.toLowerCase().split(" ").includes(searchTerm.toLowerCase())) ||  item.price.toString().toLowerCase().includes(searchTerm) );
+        return filteredRsult
+    }
 
-    const filteredResult = data?.filter(item => (item?.name.toLowerCase()?.split("").includes( searchTerm.toLowerCase()) || item?.name?.split("").includes(searchTerm)) || item.price.tostring().includes(searchTerm)) 
-  return filteredResult
-  }
-
-    const data = await response.json()
-
-    console.log(data)
-
-    return data
-};
-
+    return data;
+}
 
 export const getProduct = async (id) => {
+    
     const api = import.meta.env.VITE_APP_DB_SERVER;
-    
-    const response = await fetch(`${api}/products/${id}`);
-    
-    if (!response.ok) {
-        throw {
-            message: response.statusText,
-            status: response.status,
-        };
+
+    const response = await fetch(`${api}/products/${id}`)
+
+    if (!response.ok){
+        throw{
+            message: response.statusText, status: response.status
+        }
     }
     
-    const data =await response.json()
+    const data = await response.json();
+    return data;
 
-    return  data
-};
-export const getFeaturedList = async (searchTerm) => {
-  const api = import.meta.env.VITE_APP_DB_SERVER;
+}
+export const getFeaturedList = async () => {
+    
+    const api = import.meta.env.VITE_APP_DB_SERVER;
 
-  const response = await fetch(`${api}/featured_products`);
+    const response = await fetch(`${api}/featured_products`)
 
-  if (!response.ok) {
-    throw {
-      message: response.statusText,
-      status: response.status,
-    };
-  }
-  
-  const data = await response.json()
+    if (!response.ok){
+        throw{
+            message: response.statusText, status: response.status
+        }
+    }
 
-  console.log(data)
-
-  return data
-};
-
-
+    const data =  await response.json();
+    return data;
+}
